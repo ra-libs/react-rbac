@@ -3,6 +3,7 @@ import { ResourceContextProvider, ResourceProps } from 'react-admin'
 import { Route, Routes } from 'react-router-dom'
 import { CASLAction } from '../../config'
 import { useCASL } from '../../contexts'
+import { createAbility, createRules } from '../../contexts/CASL/utils'
 
 import { InitPermissions } from '../InitPermissions'
 
@@ -44,22 +45,20 @@ function CASLResource(props: ResourceProps) {
 
 Resource.raName = 'Resource'
 
-Resource.registerResource = ({
-  create,
-  edit,
-  icon,
-  list,
-  name,
-  options,
-  show,
-  recordRepresentation,
-}: ResourceProps) => ({
-  name,
-  options,
-  hasList: !!list,
-  hasCreate: !!create,
-  hasEdit: !!edit,
-  hasShow: !!show,
-  icon,
-  recordRepresentation,
-})
+Resource.registerResource = (
+  { create, edit, icon, list, name, options, show, recordRepresentation }: ResourceProps,
+  permissions: any,
+) => {
+  const rules = createRules(permissions)
+  const ability = createAbility(rules)
+  return {
+    name,
+    options,
+    hasList: !!list && ability.can(CASLAction.Read, name),
+    hasCreate: !!create && ability.can(CASLAction.Create, name),
+    hasEdit: !!edit && ability.can(CASLAction.Update, name),
+    hasShow: !!show && ability.can(CASLAction.Read, name),
+    icon,
+    recordRepresentation,
+  }
+}
