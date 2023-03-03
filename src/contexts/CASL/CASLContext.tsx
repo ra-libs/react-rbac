@@ -1,11 +1,22 @@
 import { createContext } from 'react'
-import { PureAbility } from '@casl/ability'
+import { Ability, ForcedSubject, MongoQuery } from '@casl/ability'
 import { BoundCanProps } from '@casl/react'
 import { Can } from './Can'
 import { CASLAction, Role } from '../../config'
+import { RaRecord } from 'react-admin'
 
-export type Subjects = 'all' | string
-export type AppAbility = PureAbility<[CASLAction, Subjects]>
+export type Model<T, TName extends string> = T & ForcedSubject<TName>
+
+export type RaSubjects<T extends Partial<Record<string, Record<string, unknown>>>> =
+  | keyof T
+  | {
+      [K in keyof T]: Model<T[K], K & string>
+    }[keyof T]
+
+export type Subjects = RaSubjects<RaRecord> | 'all'
+export type Conditions = MongoQuery
+
+export type AppAbility = Ability<[CASLAction, Subjects], Conditions>
 
 export type CASLContextData = {
   ability: AppAbility
@@ -15,6 +26,6 @@ export type CASLContextData = {
 }
 
 export const CASLContext = createContext<CASLContextData>({
-  ability: new PureAbility(),
+  ability: new Ability(),
   Can: Can,
 })
