@@ -12,3 +12,8 @@ import { Admin, Resource } from "@ra-libs/react-rbac";
 </Admin>
 ```
 
+### Props
+
+| Prop     | Required | Type    | Default | Description                                          |
+| -------- | -------- | ------- | ------- | ---------------------------------------------------- |
+| subject  | false    | string  |  -   | CASL permission subject to override resource name |
