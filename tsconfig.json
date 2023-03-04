@@ -8,11 +8,12 @@
     ],
     "compilerOptions": {
         "module": "esnext",
+        "target": "es6",
         "lib": [
             "dom",
+            "dom.iterable",
             "esnext"
         ],
-        "target": "es6",
         "importHelpers": true,
         "declaration": true,
         "sourceMap": true,
@@ -23,11 +24,11 @@
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": false,
         "noUnusedParameters": true,
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "jsx": "react",
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
     }
 }
