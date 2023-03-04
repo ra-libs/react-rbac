@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ra-libs/react-rbac/compare/v1.1.0...v1.2.0) (2023-03-04)
+
+
+### Features
+
+* **Resource:** add subject field to override resource name permission ([9d1c238](https://github.com/ra-libs/react-rbac/commit/9d1c23840d636176140cabd32e2c845a7995260c))
+
 # [1.1.0](https://github.com/ra-libs/react-rbac/compare/v1.0.0...v1.1.0) (2023-03-03)
 
 
