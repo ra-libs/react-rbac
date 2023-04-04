@@ -7,7 +7,12 @@ import { createAbility, createRules } from '../../contexts/CASL/utils'
 
 import { InitPermissions } from '../InitPermissions'
 
-export interface ResourceProps extends RaResourceProps {
+export type ResourceProps = RaResourceProps & {
+  list?: React.ElementType
+  create?: React.ElementType
+  edit?: React.ElementType
+  show?: React.ElementType
+
   /** CASL permission subject to override resource name */
   subject?: string
 }
