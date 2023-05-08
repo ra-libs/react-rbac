@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ra-libs/react-rbac/compare/v1.2.2...v1.3.0) (2023-05-08)
+
+
+### Features
+
+* **actions:** add go back button to ShowAction ([bc2fff8](https://github.com/ra-libs/react-rbac/commit/bc2fff8ce30d72dc441ab17f5e696cf7baf5a8ac))
+
 ## [1.2.2](https://github.com/ra-libs/react-rbac/compare/v1.2.1...v1.2.2) (2023-04-30)
 
 
