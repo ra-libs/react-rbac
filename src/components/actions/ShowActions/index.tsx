@@ -2,21 +2,32 @@ import React from 'react'
 import { subject } from '@casl/ability'
 
 import {
+  Button,
   DeleteWithConfirmButton,
   EditButton,
   RefreshButton,
-  ShowActionsProps,
+  ShowActionsProps as RaShowActionsProps,
   TopToolbar,
   useRecordContext,
   useResourceContext,
   useResourceDefinition,
+  useTranslate,
 } from 'react-admin'
-import { CASLAction } from '../../../config'
+import { useNavigate } from 'react-router-dom'
+import { Grid } from '@mui/material'
 import { useCASL } from '../../../contexts'
+import { CASLAction } from '../../../config'
+
+interface ShowActionsProps extends RaShowActionsProps {
+  useGoBackButton?: boolean
+}
 
 export function ShowActions(props: ShowActionsProps) {
+  const { useGoBackButton = false } = props
   const record = useRecordContext()
   const resource = useResourceContext()
+  const translate = useTranslate()
+  const navigate = useNavigate()
   const { hasEdit } = useResourceDefinition()
   const { ability } = useCASL()
 
@@ -35,9 +46,24 @@ export function ShowActions(props: ShowActionsProps) {
 
   return (
     <TopToolbar className={props.className}>
-      {hasEdit && canUpdate && <EditButton record={record} />}
-      {canDelete && <DeleteWithConfirmButton record={record} />}
-      {canRead && <RefreshButton />}
+      <Grid container justifyContent='space-between'>
+        <Grid item>
+          {useGoBackButton && (
+            <Button
+              style={{ alignSelf: 'flex-start' }}
+              label={translate('buttons.go_back')}
+              onClick={() => {
+                navigate(-1)
+              }}
+            />
+          )}
+        </Grid>
+        <Grid item>
+          {hasEdit && canUpdate && <EditButton record={record} />}
+          {canDelete && <DeleteWithConfirmButton record={record} />}
+          {canRead && <RefreshButton />}
+        </Grid>
+      </Grid>
     </TopToolbar>
   )
 }
