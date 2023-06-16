@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/ra-libs/react-rbac/compare/v1.3.2...v1.3.3) (2023-06-16)
+
+
+### Bug Fixes
+
+* update deps ([678a249](https://github.com/ra-libs/react-rbac/commit/678a24990ef34e5e05d47b4d1b72122d1f1a8cc3))
+
 ## [1.3.2](https://github.com/ra-libs/react-rbac/compare/v1.3.1...v1.3.2) (2023-05-27)
 
 
