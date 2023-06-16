@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { Ability, ForcedSubject, MongoQuery } from '@casl/ability'
+import { PureAbility as Ability, ForcedSubject, MongoQuery } from '@casl/ability'
 import { BoundCanProps } from '@casl/react'
 import { Can } from './Can'
 import { CASLAction, Role } from '../../config'
