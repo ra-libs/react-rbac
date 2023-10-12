@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/ra-libs/react-rbac/compare/v1.6.4...v1.6.5) (2023-10-12)
+
+
+### Bug Fixes
+
+* version sync ([e855614](https://github.com/ra-libs/react-rbac/commit/e8556141d653124a022d39af7171a447fd38ce35))
+
 ## [1.3.5](https://github.com/ra-libs/react-rbac/compare/v1.3.4...v1.3.5) (2023-06-26)
 
 
