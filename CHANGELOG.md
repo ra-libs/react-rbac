@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/ra-libs/react-rbac/compare/v1.6.5...v1.6.6) (2023-11-26)
+
+
+### Bug Fixes
+
+* update deps ([e7c7067](https://github.com/ra-libs/react-rbac/commit/e7c7067261bf8357e05f609863a24dd54840cd98))
+
 ## [1.6.5](https://github.com/ra-libs/react-rbac/compare/v1.6.4...v1.6.5) (2023-10-12)
 
 
