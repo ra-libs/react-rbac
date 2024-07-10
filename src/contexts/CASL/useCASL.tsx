@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+
 import { CASLContext, CASLContextData } from './CASLContext'
 
 export function useCASL(): CASLContextData {

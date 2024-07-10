@@ -1,10 +1,10 @@
 import React, { isValidElement } from 'react'
 import { ResourceContextProvider, ResourceProps as RaResourceProps } from 'react-admin'
 import { Route, Routes } from 'react-router-dom'
+
 import { CASLAction } from '../../config'
 import { useCASL } from '../../contexts'
 import { createAbility, createRules } from '../../contexts/CASL/utils'
-
 import { InitPermissions } from '../InitPermissions'
 
 export type ResourceProps = RaResourceProps & {

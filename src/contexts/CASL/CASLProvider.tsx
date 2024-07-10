@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
 import { Ability, SubjectRawRule } from '@casl/ability'
-import { CASLContext, Conditions, Subjects } from './CASLContext'
+import React, { useEffect, useState } from 'react'
+
+import { CASLAction, Role } from '../../config'
 import { AbilityProvider } from './Ability'
 import { Can } from './Can'
-import { CASLAction, Role } from '../../config'
-
+import { CASLContext, Conditions, Subjects } from './CASLContext'
 import { createAbility, createRules } from './utils'
 
 type CASLProviderProps = {
