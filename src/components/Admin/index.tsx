@@ -1,5 +1,6 @@
 import React from 'react'
 import { Admin as RaAdmin, AdminProps } from 'react-admin'
+
 import { CASLProvider } from '../../contexts'
 
 export function Admin(props: AdminProps) {

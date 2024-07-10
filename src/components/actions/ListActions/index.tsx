@@ -1,5 +1,6 @@
 import React from 'react'
-import { TopToolbar, FilterButton, CreateButton, ListProps, useResourceDefinition } from 'react-admin'
+import { CreateButton, FilterButton, ListProps, TopToolbar, useResourceDefinition } from 'react-admin'
+
 import { CASLAction } from '../../../config'
 import { useCASL } from '../../../contexts'
 

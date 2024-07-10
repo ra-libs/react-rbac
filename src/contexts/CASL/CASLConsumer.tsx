@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { CASLContext, CASLContextData } from './CASLContext'
 
 type CASLConsumerProps = {

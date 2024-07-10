@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
-import { usePermissions } from 'react-admin'
 import { isEqual } from 'lodash'
+import { useEffect } from 'react'
+import { usePermissions } from 'react-admin'
+
 import { useCASL } from '../../contexts'
 
 export function InitPermissions() {

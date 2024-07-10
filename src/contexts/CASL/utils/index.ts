@@ -1,5 +1,6 @@
 import { Ability, RawRule, SubjectRawRule } from '@casl/ability'
 import { isSingular, plural } from 'pluralize'
+
 import { CASLAction, Permission, Role } from '../../../config'
 import { Conditions, Subjects } from '../CASLContext'
 
