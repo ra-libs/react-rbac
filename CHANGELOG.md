@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/ra-libs/react-rbac/compare/v2.0.1...v2.0.2) (2024-07-13)
+
+
+### Bug Fixes
+
+* build ([6f0f045](https://github.com/ra-libs/react-rbac/commit/6f0f045b2b05bd3ed24ea1ffbea9b30c1cc54891))
+
 ## [2.0.1](https://github.com/ra-libs/react-rbac/compare/v2.0.0...v2.0.1) (2024-07-13)
 
 
