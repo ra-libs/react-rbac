@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/ra-libs/react-rbac/compare/v1.6.7...v1.7.0) (2024-07-13)
+
+
+### Features
+
+* :rocket: upgrade react-admin to v5 ([f743a1d](https://github.com/ra-libs/react-rbac/commit/f743a1da736b4231ebf26d0e01b8dacc0fb0a621))
+
 ## [1.6.7](https://github.com/ra-libs/react-rbac/compare/v1.6.6...v1.6.7) (2024-07-10)
 
 
