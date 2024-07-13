@@ -1,12 +1,12 @@
-import { fixupPluginRules } from '@eslint/compat'
 import pluginJs from '@eslint/js'
 import eslintPluginImport from 'eslint-plugin-import'
-import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import { fixupPluginRules } from '@eslint/compat'
 
 export default [
   pluginJs.configs.recommended,
