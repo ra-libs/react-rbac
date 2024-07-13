@@ -1,11 +1,14 @@
-import React, { isValidElement } from 'react'
-import { ResourceContextProvider, ResourceProps as RaResourceProps } from 'react-admin'
+import React, { ComponentType, isValidElement, ReactElement } from 'react'
+import { ResourceContextProvider, ResourceProps as RaResourceProps, RestoreScrollPosition } from 'react-admin'
+import { isValidElementType } from 'react-is'
 import { Route, Routes } from 'react-router-dom'
 
 import { CASLAction } from '../../config'
 import { useCASL } from '../../contexts'
 import { createAbility, createRules } from '../../contexts/CASL/utils'
 import { InitPermissions } from '../InitPermissions'
+
+// Copied from: ra-core/src/core/Resource.tsx
 
 export type ResourceProps = RaResourceProps & {
   list?: React.ElementType
@@ -28,7 +31,7 @@ export const Resource = (props: ResourceProps) => {
 }
 
 function CASLResource(props: ResourceProps) {
-  const { create: Create, edit: Edit, list: List, name, subject, show: Show } = props
+  const { create, edit, list, name, subject, show } = props
   const { ability } = useCASL()
 
   const permissionName = subject ? subject : name
@@ -36,23 +39,43 @@ function CASLResource(props: ResourceProps) {
   return (
     <>
       <InitPermissions />
-      <Routes>
-        {Create && ability.can(CASLAction.Create, permissionName) && (
-          <Route path='create/*' element={isValidElement(Create) ? Create : <Create />} />
-        )}
-        {Show && ability.can(CASLAction.Read, permissionName) && (
-          <Route path=':id/show/*' element={isValidElement(Show) ? Show : <Show />} />
-        )}
-        {Edit && ability.can(CASLAction.Update, permissionName) && (
-          <Route path=':id/*' element={isValidElement(Edit) ? Edit : <Edit />} />
-        )}
-        {List && ability.can(CASLAction.Read, permissionName) && (
-          <Route path='/*' element={isValidElement(List) ? List : <List />} />
-        )}
-        {props.children}
-      </Routes>
+      <ResourceContextProvider value={name}>
+        <Routes>
+          {create && ability.can(CASLAction.Create, permissionName) && (
+            <Route path='create/*' element={getElement(create)} />
+          )}
+          {show && ability.can(CASLAction.Read, permissionName) && (
+            <Route path=':id/show/*' element={getElement(show)} />
+          )}
+          {edit && ability.can(CASLAction.Update, permissionName) && <Route path=':id/*' element={getElement(edit)} />}
+          {list && ability.can(CASLAction.Read, permissionName) && (
+            <Route
+              path='/*'
+              element={
+                <RestoreScrollPosition storeKey={`${name}.list.scrollPosition`}>
+                  {getElement(list)}
+                </RestoreScrollPosition>
+              }
+            />
+          )}
+          {props.children}
+        </Routes>
+      </ResourceContextProvider>
     </>
   )
+}
+
+const getElement = (ElementOrComponent: ComponentType<any> | ReactElement) => {
+  if (isValidElement(ElementOrComponent)) {
+    return ElementOrComponent
+  }
+
+  if (isValidElementType(ElementOrComponent)) {
+    const Element = ElementOrComponent as ComponentType<any>
+    return <Element />
+  }
+
+  return null
 }
 
 Resource.raName = 'Resource'
