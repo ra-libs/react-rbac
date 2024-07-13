@@ -22,6 +22,8 @@ interface ShowActionsProps extends RaShowActionsProps {
   useGoBackButton?: boolean
 }
 
+// Override ra-ui-materialui/src/detail/ShowActions.tsx
+
 export function ShowActions(props: ShowActionsProps) {
   const { useGoBackButton = false } = props
   const record = useRecordContext()
@@ -30,6 +32,8 @@ export function ShowActions(props: ShowActionsProps) {
   const navigate = useNavigate()
   const { hasEdit } = useResourceDefinition()
   const { ability } = useCASL()
+
+  if (!record || !resource) return null
 
   let canDelete = false,
     canUpdate = false,
@@ -41,8 +45,6 @@ export function ShowActions(props: ShowActionsProps) {
   } catch (error) {
     console.error(error)
   }
-
-  if (!record) return null
 
   return (
     <TopToolbar className={props.className}>
