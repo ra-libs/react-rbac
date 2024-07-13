@@ -1,6 +1,6 @@
 {
   "name": "@ra-libs/react-rbac",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React admin RBAC front components and utils",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
