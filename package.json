@@ -76,7 +76,7 @@
   "dependencies": {
     "@casl/ability": "^6.7.1",
     "@casl/react": "^4.0.0",
-    "@mui/material": "^5.16.4",
+    "@mui/material": "^5.16.5",
     "lodash": "^4.17.21",
     "pluralize": "^8.0.0",
     "react-admin": "^5.0.4",
